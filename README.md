@@ -22,6 +22,10 @@ Upon receiving the structure file from our mentor Alan Mcdonald's, I have re-org
   Expected to do mathematical modelling and learning rate optimization, need to present R^2 and Pearson Correlation Value
   
 
-Simply clone the code to your local git directory and modify it as you wish, but PLEASE REMEMBER THE FOLLOWING:
+Simply clone the code to your local git directory and modify it as you wish, after you are done, make a pull request and I will test the code.
+
+**********************************************************************************************************************************************
+PLEASE REMEMBER THE FOLLOWING:
 NOTE: PLEASE DO BRANCHING FIRST after cloning to your local machine and updated it.
 We can have a discussion on the new features and decide whether we want to merge it onto the master branch.
+**********************************************************************************************************************************************
