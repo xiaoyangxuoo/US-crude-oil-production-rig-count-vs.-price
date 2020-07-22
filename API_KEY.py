@@ -1,0 +1,2 @@
+API_KEY_EIA = "193c52ef4d99f9bb529a888f63e82af1"
+
