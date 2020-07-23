@@ -2,12 +2,13 @@ import operator
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-
+from pathlib import Path
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.preprocessing import PolynomialFeatures
 
-data=pd.read_csv("Rig_Count_vs._Spot_Price.csv")
+Datapath = Path(__file__).parent / "../data_list/Rig_Count_vs._Spot_Price.csv"
+data=pd.read_csv(Datapath)
 data['Date'] = pd.to_datetime(data['Date'])
 
 Oil_Price_y = data["Oil_Price"][:, np.newaxis]

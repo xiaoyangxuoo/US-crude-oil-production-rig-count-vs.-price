@@ -5,9 +5,11 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn import datasets, linear_model
 from sklearn.metrics import mean_squared_error, r2_score
+from pathlib import Path
 
-data=pd.read_csv("Rig_Count_vs._Spot_Price.csv")
-data['Date'] = pd.to_datetime(data['Date'])
+Datapath = Path(__file__).parent / "../data_list/Rig_Count_vs._Spot_Price.csv"
+data=pd.read_csv(Datapath)
+
 print(data.head(2))
 Oil_Price_y = data["Oil_Price"][:, np.newaxis]
 Rig_count_x= data["Rig_count"][:, np.newaxis]
