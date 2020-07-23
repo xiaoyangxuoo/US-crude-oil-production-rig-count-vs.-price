@@ -10,7 +10,7 @@ Data Source:
 EIA.gov, more specifically, https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=MCRFPUS2&f=M
 
 Techniques to be used:
-Linear modelling (regression), supervised learning and Regularization methods, including Ridge and Lasso.
+Linear modelling (regression), supervised learning and optional Regularization methods, including Ridge and Lasso.
 
 
 Upon receiving the structure file from our mentor Alan Mcdonald's, I have re-organized the whole directories and roles according to：
@@ -22,7 +22,7 @@ Upon receiving the structure file from our mentor Alan Mcdonald's, I have re-org
   Expected to do mathematical modelling and learning rate optimization, need to present R^2 and Pearson Correlation Value
   
 
-Simply clone the code to your local git directory and modify it as you wish, after you are done, make a pull request and I will test the code.
+Simply fork, clone the code to your local git directory and modify it as you wish, after you are done, make a pull request and I will test the code.
 
 **********************************************************************************************************************************************
 PLEASE REMEMBER THE FOLLOWING:
