@@ -10,41 +10,42 @@ from pathlib import Path
 Datapath = Path(__file__).parent / "../data_list/Rig_Count_vs._Spot_Price.csv"
 data=pd.read_csv(Datapath)
 
-print(data.head(2))
+# print(data.head(2))
 Oil_Price_y = data["Oil_Price"][:, np.newaxis]
 Rig_count_x= data["Rig_count"][:, np.newaxis]
-model = LinearRegression().fit(Rig_count_x, Oil_Price_y)
-r_sq = model.score(Rig_count_x, Oil_Price_y)
-print('coefficient of determination:', r_sq)
-print('intercept:', model.intercept_)
-print('slope:', model.coef_)
-Oil_Price_y_pred = model.predict(Rig_count_x)
-data.plot.scatter("Rig_count","Oil_Price",label='Data')
-plt.plot(Rig_count_x, Oil_Price_y_pred, color='red', label='Linear regression')
-plt.title("Oil price vs Rig count")
-plt.grid()
-plt.legend()
-plt.show()
+# model = LinearRegression().fit(Rig_count_x, Oil_Price_y)
+# r_sq = model.score(Rig_count_x, Oil_Price_y)
+# print('coefficient of determination:', r_sq)
+# print('intercept:', model.intercept_)
+# print('slope:', model.coef_)
+# Oil_Price_y_pred = model.predict(Rig_count_x)
+# data.plot.scatter("Rig_count","Oil_Price",label='Data')
+# plt.plot(Rig_count_x, Oil_Price_y_pred, color='red', label='Linear regression')
+# plt.title("Oil price vs Rig count")
+# plt.grid()
+# plt.legend()
+# plt.show()
 
-#data selected from an specific date
-desire_date='01/01/2010'
-x=datetime.strptime(desire_date, '%m/%d/%Y')
-data_2010_2020=data[data['Date']>=x]
+#data selected from an specific date， to make it more linear
+desire_date=pd.Timestamp('01/01/2010')
+data['Date'] = pd.to_datetime(data['Date'])
+condition = data['Date'] > desire_date
+data_2010_2020=data[condition]
 
-Oil_Price_y = data_2010_2020["Oil_Price"][:, np.newaxis]
-Rig_count_x= data_2010_2020["Rig_count"][:, np.newaxis]
-model = LinearRegression().fit(Rig_count_x, Oil_Price_y)
-r_sq = model.score(Rig_count_x, Oil_Price_y)
-print('coefficient of determination:', r_sq)
-print('intercept:', model.intercept_)
-print('slope:', model.coef_)
-Oil_Price_y_pred = model.predict(Rig_count_x)
-data_2010_2020.plot.scatter("Rig_count","Oil_Price",label='Data')
-plt.plot(Rig_count_x, Oil_Price_y_pred, color='red',label='Linear regression')
-plt.title("Oil price vs Rig count 2010-2020")
-plt.grid()
-plt.legend()
-plt.show()
+# Oil_Price_y = data_2010_2020["Oil_Price"][:, np.newaxis]
+# Rig_count_x= data_2010_2020["Rig_count"][:, np.newaxis]
+# model = LinearRegression().fit(Rig_count_x, Oil_Price_y)
+# r_sq = model.score(Rig_count_x, Oil_Price_y)
+# print('coefficient of determination:', r_sq)
+# print('intercept:', model.intercept_)
+# print('slope:', model.coef_)
+# Oil_Price_y_pred = model.predict(Rig_count_x)
+# data_2010_2020.plot.scatter("Rig_count","Oil_Price",label='Data')
+# plt.plot(Rig_count_x, Oil_Price_y_pred, color='red',label='Linear regression')
+# plt.title("Oil price vs Rig count 2010-2020")
+# plt.grid()
+# plt.legend()
+# plt.show()
 
 Oil_Price_y_train = data_2010_2020["Oil_Price"][:-30][:, np.newaxis]
 Oil_Price_y_test = data_2010_2020["Oil_Price"][-30:][:, np.newaxis]

@@ -14,6 +14,7 @@ data['Date'] = pd.to_datetime(data['Date'])
 Oil_Price_y = data["Oil_Price"][:, np.newaxis]
 Rig_count_x= data["Rig_count"][:, np.newaxis]
 
+#
 polynomial_features= PolynomialFeatures(degree=2)
 x_poly = polynomial_features.fit_transform(Rig_count_x)
 
