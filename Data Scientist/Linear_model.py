@@ -7,11 +7,12 @@ from sklearn.metrics import mean_squared_error, r2_score
 from sklearn import linear_model
 from pathlib import Path
 
-Datapath = Path(__file__).parent / "../data_list/Rig_CountvsOil_price_v1.csv"
+Datapath = Path(__file__).parent / "../data_list/Rig_Count_vs._Spot_Price.csv"
 data=pd.read_csv(Datapath)
 data['Date'] = pd.to_datetime(data['Date'])
 data1=data[data["Oil_Price"]<71]
 data2=data[data["Oil_Price"]>=71]
+
 #Lower Closter (data1)
 Oil_Price_x = data1["Oil_Price"][3:, np.newaxis]
 Rig_count_y= data1["Rig_count"][:-3, np.newaxis]
